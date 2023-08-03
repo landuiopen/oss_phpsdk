@@ -173,7 +173,7 @@ class Region
                 $retryTimes
             )
         );
-        $ret = Client::Get($url, array(), $reqOpt);var_dump($ret);
+        $ret = Client::Get($url, array(), $reqOpt);dd($ret);
         if (!$ret->ok()) {
             return array(null, new Error($url, $ret));
         }
