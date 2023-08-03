@@ -5,7 +5,10 @@ namespace landuioss;
 use landuioss\Config;
 
 if (!defined('QINIU_FUNCTIONS_VERSION')) {
+// 环境常量
     define('QINIU_FUNCTIONS_VERSION', Config::SDK_VER);
+    define('IS_CLI', PHP_SAPI == 'cli' ? true : false);
+    define('IS_WIN', strpos(PHP_OS, 'WIN') !== false);
 
 
     /**

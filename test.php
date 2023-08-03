@@ -34,6 +34,6 @@ list($ret, $err) = $uploadMgr->putFile($token, $key, $filePath, null, 'applicati
 //} else {
 //    var_dump($ret);
 //}
-var_dump($upHost);
-var_dump($err);
+//var_dump($upHost);
+//var_dump($err);
 echo($token);
