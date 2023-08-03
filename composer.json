@@ -1,6 +1,8 @@
 {
     "name": "landuioss/php-sdk",
     "description": "Landui Resource (Cloud) Storage SDK for PHP",
+    "version": "1.0.0",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "landuioss\\": "src/landuioss"
