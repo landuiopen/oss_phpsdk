@@ -4,7 +4,10 @@
     "autoload": {
         "psr-4": {
             "landuioss\\": "src/landuioss"
-        }
+        },
+        "files": [
+            "src/landuioss/functions.php"
+        ]
     },
     "authors": [
         {
