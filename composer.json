@@ -17,8 +17,7 @@
     ],
     "require": {
         "php": ">=5.4",
-        "myclabs/php-enum": "~1.5.2 || ~1.6.6 || ~1.7.7 || ~1.8.4",
-        "landuioss/php-sdk": "^1.0"
+        "myclabs/php-enum": "~1.5.2 || ~1.6.6 || ~1.7.7 || ~1.8.4"
     },
     "minimum-stability": "stable",
     "require-dev": {

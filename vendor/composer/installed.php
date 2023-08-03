@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'dfaaf0bb52ad0dce83681dc067f63ba639fa8efc',
+        'reference' => 'eb2ec52705b0a0b6dc3dbd8b051c3739a4ed66e3',
         'name' => 'landuioss/php-sdk',
         'dev' => true,
     ),
@@ -25,7 +25,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'dfaaf0bb52ad0dce83681dc067f63ba639fa8efc',
+            'reference' => 'eb2ec52705b0a0b6dc3dbd8b051c3739a4ed66e3',
             'dev_requirement' => false,
         ),
         'myclabs/deep-copy' => array(
