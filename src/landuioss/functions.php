@@ -49,7 +49,7 @@ if (!defined('QINIU_FUNCTIONS_VERSION')) {
      * @param string $data 待编码的数据，一般为字符串
      *
      * @return string 编码后的字符串
-     * @link   http://developer.qiniu.com/docs/v6/api/overview/appendix.html#urlsafe-base64
+     * @link   http://developer.landuiyu.com/docs/v6/api/overview/appendix.html#urlsafe-base64
      */
     function base64_urlSafeEncode($data)
     {
@@ -151,13 +151,13 @@ if (!defined('QINIU_FUNCTIONS_VERSION')) {
 
 
     /**
-     * 计算七牛API中的数据格式
+     * 计算蓝队云API中的数据格式
      *
      * @param string $bucket 待操作的空间名
      * @param string $key    待操作的文件名
      *
-     * @return string  符合七牛API规格的数据格式
-     * @link   https://developer.qiniu.com/kodo/api/data-format
+     * @return string  符合蓝队云API规格的数据格式
+     * @link   https://developer.landuiyu.com/kodo/api/data-format
      */
     function entry($bucket, $key=null)
     {
@@ -203,7 +203,7 @@ if (!defined('QINIU_FUNCTIONS_VERSION')) {
      * @param  integer $interlace   是否支持渐进显示
      * @param  integer $ignoreError 忽略结果
      * @return string
-     * @link   http://developer.qiniu.com/code/v6/api/kodo-api/image/imageview2.html
+     * @link   http://developer.landuiyu.com/code/v6/api/kodo-api/image/imageview2.html
      * @author Sherlock Ren <sherlock_ren@icloud.com>
      */
     function thumbnail(
@@ -236,7 +236,7 @@ if (!defined('QINIU_FUNCTIONS_VERSION')) {
      * @param  numeric $dx             横轴边距
      * @param  numeric $dy             纵轴边距
      * @param  numeric $watermarkScale 自适应原图的短边比例
-     * @link   http://developer.qiniu.com/code/v6/api/kodo-api/image/watermark.html
+     * @link   http://developer.landuiyu.com/code/v6/api/kodo-api/image/watermark.html
      * @return string
      * @author Sherlock Ren <sherlock_ren@icloud.com>
      */
@@ -271,7 +271,7 @@ if (!defined('QINIU_FUNCTIONS_VERSION')) {
      * @param  string  $gravity   水印位置
      * @param  numeric $dx        横轴边距
      * @param  numeric $dy        纵轴边距
-     * @link   http://developer.qiniu.com/code/v6/api/kodo-api/image/watermark.html#text-watermark
+     * @link   http://developer.landuiyu.com/code/v6/api/kodo-api/image/watermark.html#text-watermark
      * @return string
      * @author Sherlock Ren <sherlock_ren@icloud.com>
      */

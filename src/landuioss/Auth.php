@@ -173,7 +173,7 @@ final class Auth
 
     /**
      *上传策略，参数规格详见
-     *http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html
+     *http://developer.landuiyu.com/docs/v6/api/reference/security/put-policy.html
      */
     private static $policyFields = array(
         'callbackUrl',

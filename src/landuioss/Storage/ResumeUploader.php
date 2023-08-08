@@ -12,8 +12,8 @@ use landuioss\Http\RequestOptions;
  * 断点续上传类, 该类主要实现了断点续上传中的分块上传,
  * 以及相应地创建块和创建文件过程.
  *
- * @link http://developer.qiniu.com/docs/v6/api/reference/up/mkblk.html
- * @link http://developer.qiniu.com/docs/v6/api/reference/up/mkfile.html
+ * @link http://developer.landuiyu.com/docs/v6/api/reference/up/mkblk.html
+ * @link http://developer.landuiyu.com/docs/v6/api/reference/up/mkfile.html
  */
 final class ResumeUploader
 {
@@ -38,7 +38,7 @@ final class ResumeUploader
     private $reqOpt;
 
     /**
-     * 上传二进制流到七牛
+     * 上传二进制流到蓝队云
      *
      * @param string $upToken 上传凭证
      * @param string $key 上传文件名
@@ -53,7 +53,7 @@ final class ResumeUploader
      * @param RequestOptions $reqOpt 分片上传v2字段 默认大小为4MB 分片大小范围为1 MB - 1 GB
      * @throws \Exception
      *
-     * @link http://developer.qiniu.com/docs/v6/api/overview/up/response/vars.html#xvar
+     * @link http://developer.landuiyu.com/docs/v6/api/overview/up/response/vars.html#xvar
      */
     public function __construct(
         $upToken,

@@ -28,9 +28,9 @@ class Region
     public function __construct(
         $srcUpHosts = array(),
         $cdnUpHosts = array(),
-        $rsHost = "rs-z0.qiniuapi.com",
-        $rsfHost = "rsf-z0.qiniuapi.com",
-        $apiHost = "api.qiniuapi.com",
+        $rsHost = "rs-z0.landuiyuapi.com",
+        $rsfHost = "rsf-z0.landuiyuapi.com",
+        $apiHost = "api.landuiyuapi.com",
         $iovipHost = null,
         $ttl = null
     ) {
@@ -50,9 +50,9 @@ class Region
         $regionHuadong = new Region(
             array("up.landuiyun.cn"),
             array('upload.landuiyun.cn'),
-            'rs-z0.qiniuapi.com',
-            'rsf-z0.qiniuapi.com',
-            'api.qiniuapi.com',
+            'rs-z0.landuiyuapi.com',
+            'rsf-z0.landuiyuapi.com',
+            'api.landuiyuapi.com',
             'iovip.qbox.me'
         );
         return $regionHuadong;
@@ -63,9 +63,9 @@ class Region
     {
         $qvmRegionHuadong = new Region(
             array("free-qvm-z0-xs.landuiyun.cn"),
-            'rs-z0.qiniuapi.com',
-            'rsf-z0.qiniuapi.com',
-            'api.qiniuapi.com',
+            'rs-z0.landuiyuapi.com',
+            'rsf-z0.landuiyuapi.com',
+            'api.landuiyuapi.com',
             'iovip.qbox.me'
         );
         return $qvmRegionHuadong;
@@ -76,9 +76,9 @@ class Region
     {
         $qvmRegionHuabei = new Region(
             array("free-qvm-z1-zz.landuiyun.cn"),
-            "rs-z1.qiniuapi.com",
-            "rsf-z1.qiniuapi.com",
-            "api-z1.qiniuapi.com",
+            "rs-z1.landuiyuapi.com",
+            "rsf-z1.landuiyuapi.com",
+            "api-z1.landuiyuapi.com",
             "iovip-z1.qbox.me"
         );
         return $qvmRegionHuabei;
@@ -90,9 +90,9 @@ class Region
         $regionHuabei = new Region(
             array('up-z1.landuiyun.cn'),
             array('upload-z1.landuiyun.cn'),
-            "rs-z1.qiniuapi.com",
-            "rsf-z1.qiniuapi.com",
-            "api-z1.qiniuapi.com",
+            "rs-z1.landuiyuapi.com",
+            "rsf-z1.landuiyuapi.com",
+            "api-z1.landuiyuapi.com",
             "iovip-z1.qbox.me"
         );
 
@@ -105,9 +105,9 @@ class Region
         $regionHuanan = new Region(
             array('up-z2.landuiyun.cn'),
             array('upload-z2.landuiyun.cn'),
-            "rs-z2.qiniuapi.com",
-            "rsf-z2.qiniuapi.com",
-            "api-z2.qiniuapi.com",
+            "rs-z2.landuiyuapi.com",
+            "rsf-z2.landuiyuapi.com",
+            "api-z2.landuiyuapi.com",
             "iovip-z2.qbox.me"
         );
         return $regionHuanan;
@@ -119,10 +119,10 @@ class Region
         return new Region(
             array('up-cn-east-2.landuiyun.cn'),
             array('upload-cn-east-2.landuiyun.cn'),
-            "rs-cn-east-2.qiniuapi.com",
-            "rsf-cn-east-2.qiniuapi.com",
-            "api-cn-east-2.qiniuapi.com",
-            "iovip-cn-east-2.qiniuio.com"
+            "rs-cn-east-2.landuiyuapi.com",
+            "rsf-cn-east-2.landuiyuapi.com",
+            "api-cn-east-2.landuiyuapi.com",
+            "iovip-cn-east-2.landuiyuio.com"
         );
     }
 
@@ -133,9 +133,9 @@ class Region
         $regionNorthAmerica = new Region(
             array('up-na0.landuiyun.cn'),
             array('upload-na0.landuiyun.cn'),
-            "rs-na0.qiniuapi.com",
-            "rsf-na0.qiniuapi.com",
-            "api-na0.qiniuapi.com",
+            "rs-na0.landuiyuapi.com",
+            "rsf-na0.landuiyuapi.com",
+            "api-na0.landuiyuapi.com",
             "iovip-na0.qbox.me"
         );
         return $regionNorthAmerica;
@@ -148,9 +148,9 @@ class Region
         $regionSingapore = new Region(
             array('up-as0.landuiyun.cn'),
             array('upload-as0.landuiyun.cn'),
-            "rs-as0.qiniuapi.com",
-            "rsf-as0.qiniuapi.com",
-            "api-as0.qiniuapi.com",
+            "rs-as0.landuiyuapi.com",
+            "rsf-as0.landuiyuapi.com",
+            "api-as0.landuiyuapi.com",
             "iovip-as0.qbox.me"
         );
         return $regionSingapore;
@@ -177,7 +177,7 @@ class Region
         if (!$ret->ok()) {
             return array(null, new Error($url, $ret));
         }
-        $r = ($ret->body === null) ? array() : $ret->json();
+        $r = ($ret->body === null) ? array() : json_decode($ret->body,true);
         if (!is_array($r["hosts"]) || count($r["hosts"]) == 0) {
             return array(null, new Error($url, $ret));
         }

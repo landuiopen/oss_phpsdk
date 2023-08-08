@@ -9,8 +9,9 @@ use landuioss\Http\Client;
 
 /**
  * 主要涉及了空间资源管理及批量操作接口的实现，具体的接口规格可以参考
+ * 操作管理器
  *
- * @link https://developer.qiniu.com/kodo/api/1274/rs
+ * @link https://developer.landuiyu.com/kodo/api/1274/rs
  */
 final class BucketManager
 {
@@ -66,7 +67,7 @@ final class BucketManager
      * @param string $region 创建的区域，默认华东
      *
      * @return array
-     * @link https://developer.qiniu.com/kodo/api/1382/mkbucketv3
+     * @link https://developer.landuiyu.com/kodo/api/1382/mkbucketv3
      */
     public function createBucket($name, $region = 'z0')
     {
@@ -80,7 +81,7 @@ final class BucketManager
      * @param string $name 需要删除的目标空间名
      *
      * @return array
-     * @link https://developer.qiniu.com/kodo/api/1601/drop-bucket
+     * @link https://developer.landuiyu.com/kodo/api/1601/drop-bucket
      */
     public function deleteBucket($name)
     {
@@ -135,7 +136,7 @@ final class BucketManager
      * @param string $delimiter 指定目录分隔符
      *
      * @return array
-     * @link  https://developer.qiniu.com/kodo/api/1284/list
+     * @link  https://developer.landuiyu.com/kodo/api/1284/list
      */
     public function listFiles(
         $bucket,
@@ -165,7 +166,7 @@ final class BucketManager
      * @param bool $skipconfirm 是否跳过已删除条目的确认机制
      *
      * @return array
-     * @link  http://developer.qiniu.com/docs/v6/api/reference/rs/list.html
+     * @link  http://developer.landuiyu.com/docs/v6/api/reference/rs/list.html
      */
     public function listFilesv2(
         $bucket,
@@ -548,7 +549,7 @@ final class BucketManager
      * @param string $pattern 规则字符串
      * @param int $enabled 源站是否支持，默认为0只给CDN配置, 设置为1表示开启源站防盗链
      * @return array
-     * @link https://developer.qiniu.com/kodo/manual/6093/set-the-hotlinking-prevention
+     * @link https://developer.landuiyu.com/kodo/manual/6093/set-the-hotlinking-prevention
      */
     public function putReferAntiLeech($bucket, $mode, $norefer, $pattern, $enabled = 1)
     {
@@ -602,7 +603,7 @@ final class BucketManager
      * @param string $key 待获取资源的文件名
      *
      * @return array
-     * @link  https://developer.qiniu.com/kodo/api/1308/stat
+     * @link  https://developer.landuiyu.com/kodo/api/1308/stat
      */
     public function stat($bucket, $key)
     {
@@ -617,7 +618,7 @@ final class BucketManager
      * @param string $key 待删除资源的文件名
      *
      * @return array
-     * @link  https://developer.qiniu.com/kodo/api/1257/delete
+     * @link  https://developer.landuiyu.com/kodo/api/1257/delete
      */
     public function delete($bucket, $key)
     {
@@ -648,7 +649,7 @@ final class BucketManager
      * @param string $to_key 目标资源文件名
      *
      * @return array
-     * @link  https://developer.qiniu.com/kodo/api/1254/copy
+     * @link  https://developer.landuiyu.com/kodo/api/1254/copy
      */
     public function copy($from_bucket, $from_key, $to_bucket, $to_key, $force = false)
     {
@@ -670,7 +671,7 @@ final class BucketManager
      * @param string $to_key 目标资源文件名
      *
      * @return array
-     * @link  https://developer.qiniu.com/kodo/api/1288/move
+     * @link  https://developer.landuiyu.com/kodo/api/1288/move
      */
     public function move($from_bucket, $from_key, $to_bucket, $to_key, $force = false)
     {
@@ -691,7 +692,7 @@ final class BucketManager
      * @param string $mime 待操作文件目标mimeType
      *
      * @return array
-     * @link  https://developer.qiniu.com/kodo/api/1252/chgm
+     * @link  https://developer.landuiyu.com/kodo/api/1252/chgm
      */
     public function changeMime($bucket, $key, $mime)
     {
@@ -714,7 +715,7 @@ final class BucketManager
      *   3 表示深度归档存储；
      *
      * @return array
-     * @link  https://developer.qiniu.com/kodo/api/3710/chtype
+     * @link  https://developer.landuiyu.com/kodo/api/3710/chtype
      */
     public function changeType($bucket, $key, $fileType)
     {
@@ -731,7 +732,7 @@ final class BucketManager
      * @param int $freezeAfterDays 解冻有效时长，取值范围 1~7
      *
      * @return array
-     * @link  https://developer.qiniu.com/kodo/api/6380/restore-archive
+     * @link  https://developer.landuiyu.com/kodo/api/6380/restore-archive
      */
     public function restoreAr($bucket, $key, $freezeAfterDays)
     {
@@ -748,7 +749,7 @@ final class BucketManager
      * @param int $status 0表示启用；1表示禁用
      *
      * @return array
-     * @link  https://developer.qiniu.com/kodo/api/4173/modify-the-file-status
+     * @link  https://developer.landuiyu.com/kodo/api/4173/modify-the-file-status
      */
     public function changeStatus($bucket, $key, $status)
     {
@@ -765,7 +766,7 @@ final class BucketManager
      * @param string $key 目标资源文件名
      *
      * @return array
-     * @link  https://developer.qiniu.com/kodo/api/1263/fetch
+     * @link  https://developer.landuiyu.com/kodo/api/1263/fetch
      */
     public function fetch($url, $bucket, $key = null)
     {
@@ -802,7 +803,7 @@ final class BucketManager
      * @param int $file_type 存储文件类型 0:标准存储(默认),1:低频存储,2:归档存储
      * @param bool $ignore_same_key 如果空间中已经存在同名文件则放弃本次抓取
      * @return array
-     * @link  https://developer.qiniu.com/kodo/api/4097/asynch-fetch
+     * @link  https://developer.landuiyu.com/kodo/api/4097/asynch-fetch
      */
     public function asynchFetch(
         $url,
@@ -843,7 +844,7 @@ final class BucketManager
      * @param string $zone
      * @param string $id
      * @return array
-     * @link  https://developer.qiniu.com/kodo/api/4097/asynch-fetch
+     * @link  https://developer.landuiyu.com/kodo/api/4097/asynch-fetch
      */
     public function asynchFetchStatus($zone, $id)
     {
@@ -853,7 +854,7 @@ final class BucketManager
             $scheme = "https://";
         }
 
-        $url = $scheme . "api-" . $zone . ".qiniuapi.com/sisyphus/fetch?id=" . $id;
+        $url = $scheme . "api-" . $zone . ".landuiyuapi.com/sisyphus/fetch?id=" . $id;
 
         list($ret, $err) = $this->getV2($url);
 
@@ -871,7 +872,7 @@ final class BucketManager
      * @param string $key 代获取资源文件名
      *
      * @return array
-     * @link  https://developer.qiniu.com/kodo/api/1293/prefetch
+     * @link  https://developer.landuiyu.com/kodo/api/1293/prefetch
      */
     public function prefetch($bucket, $key)
     {
@@ -903,7 +904,7 @@ final class BucketManager
      *                   { "code" => <HttpCode int>, "data" => { "error": "<ErrorMessage string>" } },
      *                   ...
      *               ]
-     * @link http://developer.qiniu.com/docs/v6/api/reference/rs/batch.html
+     * @link http://developer.landuiyu.com/docs/v6/api/reference/rs/batch.html
      */
     public function batch($operations)
     {
@@ -923,7 +924,7 @@ final class BucketManager
      * @param int $days 设置该文件多少天后删除，当$days设置为0时表示取消该文件的生命周期
      *
      * @return array
-     * @link https://developer.qiniu.com/kodo/api/update-file-lifecycle
+     * @link https://developer.landuiyu.com/kodo/api/update-file-lifecycle
      */
     public function deleteAfterDays($bucket, $key, $days)
     {

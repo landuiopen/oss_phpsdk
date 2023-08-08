@@ -6,19 +6,22 @@ use landuioss\Config;
 use landuioss\Http\Error;
 use landuioss\Http\Client;
 use landuioss\Http\RequestOptions;
-
+/**
+ *表单上传器用于接受存储从前端直接上传的资源
+ *
+ * */
 final class FormUploader
 {
 
     /**
-     * 上传二进制流到七牛, 内部使用
+     * 上传二进制流到蓝队云, 内部使用
      *
      * @param string $upToken 上传凭证
      * @param string $key 上传文件名
      * @param string $data 上传二进制流
      * @param Config $config 上传配置
      * @param string $params 自定义变量，规格参考
-     *                    {@link https://developer.qiniu.com/kodo/manual/1235/vars#xvar}
+     *                    {@link https://developer.landuiyu.com/kodo/manual/1235/vars#xvar}
      * @param string $mime 上传数据的mimeType
      * @param string $fname
      * @param RequestOptions $reqOpt
@@ -85,14 +88,14 @@ final class FormUploader
     }
 
     /**
-     * 上传文件到七牛，内部使用
+     * 上传文件到蓝队云，内部使用
      *
      * @param string $upToken 上传凭证
      * @param string $key 上传文件名
      * @param string $filePath 上传文件的路径
      * @param Config $config 上传配置
      * @param string $params 自定义变量，规格参考
-     *                    https://developer.qiniu.com/kodo/manual/1235/vars#xvar
+     *                    https://developer.landuiyu.com/kodo/manual/1235/vars#xvar
      * @param string $mime 上传数据的mimeType
      *
      * @return array    包含已上传文件的信息，类似：

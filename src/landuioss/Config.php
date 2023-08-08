@@ -7,19 +7,16 @@ final class Config
 
     const BLOCK_SIZE = 4194304;
     // 4*1024*1024 分块上传块大小，该参数为接口规格，不能修改
-    const RSF_HOST = 'rsf.qiniuapi.com';
-    const API_HOST = 'api.qiniuapi.com';
+    const RSF_HOST = 'rsf.landuiyuapi.com';
+    const API_HOST = 'api.landuiyuapi.com';
     // RS Host
-    const RS_HOST  = 'rs.qiniuapi.com';
+    const RS_HOST  = 'rs.landuiyuapi.com';
     // UC Host
     const UC_HOST = 'uc.qbox.me';
-    const QUERY_REGION_HOST = 'kodo-config.qiniuapi.com';
-    const RTCAPI_HOST       = 'http://rtc.qiniuapi.com';
-    const ARGUS_HOST        = 'ai.qiniuapi.com';
-    const CASTER_HOST       = 'pili-caster.qiniuapi.com';
-    const SMS_HOST          = 'https://sms.qiniuapi.com';
-    const RTCAPI_VERSION    = 'v3';
-    const SMS_VERSION       = 'v1';
+    const QUERY_REGION_HOST = 'landuisdkapi.dev.landui.com';
+//    const QUERY_REGION_HOST = 'kodo-config.landuiyuapi.com';
+    const ARGUS_HOST        = 'ai.landuiyuapi.com';
+    const CASTER_HOST       = 'pili-caster.landuiyuapi.com';
 
     // Zone 空间对应的存储区域
     public $region;
@@ -60,7 +57,7 @@ final class Config
         $this->queryRegionHost         = self::QUERY_REGION_HOST;
         $this->backupQueryRegionHosts  = [
             'uc.qbox.me',
-            'api.qiniu.com',
+            'api.landuiyu.com',
         ];
         $this->backupUcHostsRetryTimes = 2;
 

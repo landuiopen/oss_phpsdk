@@ -8,9 +8,10 @@ use landuioss\Storage\ResumeUploader;
 use landuioss\Storage\FormUploader;
 
 /**
+ * 上载管理器
  * 主要涉及了资源上传接口的实现
  *
- * @link http://developer.qiniu.com/docs/v6/api/reference/up/
+ * @link http://developer.landuiyu.com/docs/v6/api/reference/up/
  */
 final class UploadManager
 {
@@ -39,13 +40,13 @@ final class UploadManager
     }
 
     /**
-     * 上传二进制流到七牛
+     * 上传二进制流到蓝队云
      *
      * @param string $upToken 上传凭证
      * @param string $key 上传文件名
      * @param string $data 上传二进制流
      * @param array<string, string> $params 自定义变量，规格参考
-     *                    http://developer.qiniu.com/docs/v6/api/overview/up/response/vars.html#xvar
+     *                    http://developer.landuiyu.com/docs/v6/api/overview/up/response/vars.html#xvar
      * @param string $mime 上传数据的mimeType
      * @param string $fname
      * @param RequestOptions $reqOpt
@@ -81,13 +82,13 @@ final class UploadManager
 
 
     /**
-     * 上传文件到七牛
+     * 上传文件到蓝队云
      *
      * @param string $upToken 上传凭证
      * @param string $key 上传文件名
      * @param string $filePath 上传文件的路径
      * @param array<string, mixed> $params 定义变量，规格参考
-     *                                     http://developer.qiniu.com/docs/v6/api/overview/up/response/vars.html#xvar
+     *                                     http://developer.landuiyu.com/docs/v6/api/overview/up/response/vars.html#xvar
      * @param boolean $mime 上传数据的mimeType
      * @param string $checkCrc 是否校验crc32
      * @param string $resumeRecordFile 断点续传文件路径 默认为null

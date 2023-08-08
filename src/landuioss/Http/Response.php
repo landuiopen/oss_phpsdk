@@ -203,7 +203,7 @@ final class Response
             return false;
         }
 
-        // https://developer.qiniu.com/fusion/kb/1352/the-http-request-return-a-status-code
+        // https://developer.landuiyu.com/fusion/kb/1352/the-http-request-return-a-status-code
         if (in_array($this->statusCode, array(
             501, 509, 573, 579, 608, 612, 614, 616, 618, 630, 631, 632, 640, 701
         ))) {

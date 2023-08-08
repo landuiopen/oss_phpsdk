@@ -11,7 +11,7 @@ use landuioss\Http\Error;
 /**
  * 主要涉及了内容审核接口的实现，具体的接口规格可以参考
  *
- * @link https://developer.qiniu.com/censor/api/5620/video-censor
+ * @link https://developer.landuiyu.com/censor/api/5620/video-censor
  */
 final class ArgusManager
 {
@@ -34,7 +34,7 @@ final class ArgusManager
      * @param string $body body信息
      *
      * @return array 成功返回NULL，失败返回对象Qiniu\Http\Error
-     * @link  https://developer.qiniu.com/censor/api/5620/video-censor
+     * @link  https://developer.landuiyu.com/censor/api/5620/video-censor
      */
     public function censorVideo($body)
     {
@@ -50,7 +50,7 @@ final class ArgusManager
      * @param string $body
      *
      * @return array 成功返回NULL，失败返回对象Qiniu\Http\Error
-     * @link  https://developer.qiniu.com/censor/api/5588/image-censor
+     * @link  https://developer.landuiyu.com/censor/api/5588/image-censor
      */
     public function censorImage($body)
     {
@@ -64,7 +64,7 @@ final class ArgusManager
      *
      * @param string $jobid 任务ID
      * @return array
-     * @link  https://developer.qiniu.com/censor/api/5620/video-censor
+     * @link  https://developer.landuiyu.com/censor/api/5620/video-censor
      */
     public function censorStatus($jobid)
     {
