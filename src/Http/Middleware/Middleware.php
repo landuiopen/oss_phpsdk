@@ -1,8 +1,8 @@
 <?php
-namespace landuioss\Http\Middleware;
+namespace landui\oss\Http\Middleware;
 
-use landuioss\Http\Request;
-use landuioss\Http\Response;
+use landui\oss\Http\Request;
+use landui\oss\Http\Response;
 
 interface Middleware
 {

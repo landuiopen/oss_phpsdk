@@ -1,11 +1,11 @@
 <?php
 
-namespace landuioss\Storage;
+namespace landui\oss\Storage;
 
-use landuioss\Auth;
-use landuioss\Config;
-use landuioss\Http\Error;
-use landuioss\Http\Client;
+use landui\oss\Auth;
+use landui\oss\Config;
+use landui\oss\Http\Error;
+use landui\oss\Http\Client;
 
 /**
  * 主要涉及了空间资源管理及批量操作接口的实现，具体的接口规格可以参考
@@ -146,10 +146,10 @@ final class BucketManager
         $delimiter = null
     ) {
         $query = array('bucket' => $bucket);
-        \landuioss\setWithoutEmpty($query, 'prefix', $prefix);
-        \landuioss\setWithoutEmpty($query, 'marker', $marker);
-        \landuioss\setWithoutEmpty($query, 'limit', $limit);
-        \landuioss\setWithoutEmpty($query, 'delimiter', $delimiter);
+        \landui\oss\setWithoutEmpty($query, 'prefix', $prefix);
+        \landui\oss\setWithoutEmpty($query, 'marker', $marker);
+        \landui\oss\setWithoutEmpty($query, 'limit', $limit);
+        \landui\oss\setWithoutEmpty($query, 'delimiter', $delimiter);
         return $this->rsfGet($bucket, '/list?' . http_build_query($query));
     }
 
@@ -177,11 +177,11 @@ final class BucketManager
         $skipconfirm = true
     ) {
         $query = array('bucket' => $bucket);
-        \landuioss\setWithoutEmpty($query, 'prefix', $prefix);
-        \landuioss\setWithoutEmpty($query, 'marker', $marker);
-        \landuioss\setWithoutEmpty($query, 'limit', $limit);
-        \landuioss\setWithoutEmpty($query, 'delimiter', $delimiter);
-        \landuioss\setWithoutEmpty($query, 'skipconfirm', $skipconfirm);
+        \landui\oss\setWithoutEmpty($query, 'prefix', $prefix);
+        \landui\oss\setWithoutEmpty($query, 'marker', $marker);
+        \landui\oss\setWithoutEmpty($query, 'limit', $limit);
+        \landui\oss\setWithoutEmpty($query, 'delimiter', $delimiter);
+        \landui\oss\setWithoutEmpty($query, 'skipconfirm', $skipconfirm);
         $path = '/v2/list?' . http_build_query($query);
 
         list($host, $err) = $this->config->getRsfHostV2($this->auth->getAccessKey(), $bucket);
@@ -607,7 +607,7 @@ final class BucketManager
      */
     public function stat($bucket, $key)
     {
-        $path = '/stat/' . \landuioss\entry($bucket, $key);
+        $path = '/stat/' . \landui\oss\entry($bucket, $key);
         return $this->rsGet($bucket, $path);
     }
 
@@ -622,7 +622,7 @@ final class BucketManager
      */
     public function delete($bucket, $key)
     {
-        $path = '/delete/' . \landuioss\entry($bucket, $key);
+        $path = '/delete/' . \landui\oss\entry($bucket, $key);
         return $this->rsPost($bucket, $path);
     }
 
@@ -653,8 +653,8 @@ final class BucketManager
      */
     public function copy($from_bucket, $from_key, $to_bucket, $to_key, $force = false)
     {
-        $from = \landuioss\entry($from_bucket, $from_key);
-        $to = \landuioss\entry($to_bucket, $to_key);
+        $from = \landui\oss\entry($from_bucket, $from_key);
+        $to = \landui\oss\entry($to_bucket, $to_key);
         $path = '/copy/' . $from . '/' . $to;
         if ($force === true) {
             $path .= '/force/true';
@@ -675,8 +675,8 @@ final class BucketManager
      */
     public function move($from_bucket, $from_key, $to_bucket, $to_key, $force = false)
     {
-        $from = \landuioss\entry($from_bucket, $from_key);
-        $to = \landuioss\entry($to_bucket, $to_key);
+        $from = \landui\oss\entry($from_bucket, $from_key);
+        $to = \landui\oss\entry($to_bucket, $to_key);
         $path = '/move/' . $from . '/' . $to;
         if ($force) {
             $path .= '/force/true';
@@ -696,8 +696,8 @@ final class BucketManager
      */
     public function changeMime($bucket, $key, $mime)
     {
-        $resource = \landuioss\entry($bucket, $key);
-        $encode_mime = \landuioss\base64_urlSafeEncode($mime);
+        $resource = \landui\oss\entry($bucket, $key);
+        $encode_mime = \landui\oss\base64_urlSafeEncode($mime);
         $path = '/chgm/' . $resource . '/mime/' . $encode_mime;
         return $this->rsPost($bucket, $path);
     }
@@ -719,7 +719,7 @@ final class BucketManager
      */
     public function changeType($bucket, $key, $fileType)
     {
-        $resource = \landuioss\entry($bucket, $key);
+        $resource = \landui\oss\entry($bucket, $key);
         $path = '/chtype/' . $resource . '/type/' . $fileType;
         return $this->rsPost($bucket, $path);
     }
@@ -736,7 +736,7 @@ final class BucketManager
      */
     public function restoreAr($bucket, $key, $freezeAfterDays)
     {
-        $resource = \landuioss\entry($bucket, $key);
+        $resource = \landui\oss\entry($bucket, $key);
         $path = '/restoreAr/' . $resource . '/freezeAfterDays/' . $freezeAfterDays;
         return $this->rsPost($bucket, $path);
     }
@@ -753,7 +753,7 @@ final class BucketManager
      */
     public function changeStatus($bucket, $key, $status)
     {
-        $resource = \landuioss\entry($bucket, $key);
+        $resource = \landui\oss\entry($bucket, $key);
         $path = '/chstatus/' . $resource . '/status/' . $status;
         return $this->rsPost($bucket, $path);
     }
@@ -771,8 +771,8 @@ final class BucketManager
     public function fetch($url, $bucket, $key = null)
     {
 
-        $resource = \landuioss\base64_urlSafeEncode($url);
-        $to = \landuioss\entry($bucket, $key);
+        $resource = \landui\oss\base64_urlSafeEncode($url);
+        $to = \landui\oss\entry($bucket, $key);
         $path = '/fetch/' . $resource . '/to/' . $to;
 
         $ak = $this->auth->getAccessKey();
@@ -822,16 +822,16 @@ final class BucketManager
         $path = '/sisyphus/fetch';
 
         $params = array('url' => $url, 'bucket' => $bucket);
-        \landuioss\setWithoutEmpty($params, 'host', $host);
-        \landuioss\setWithoutEmpty($params, 'key', $key);
-        \landuioss\setWithoutEmpty($params, 'md5', $md5);
-        \landuioss\setWithoutEmpty($params, 'etag', $etag);
-        \landuioss\setWithoutEmpty($params, 'callbackurl', $callbackurl);
-        \landuioss\setWithoutEmpty($params, 'callbackbody', $callbackbody);
-        \landuioss\setWithoutEmpty($params, 'callbackbodytype', $callbackbodytype);
-        \landuioss\setWithoutEmpty($params, 'callbackhost', $callbackhost);
-        \landuioss\setWithoutEmpty($params, 'file_type', $file_type);
-        \landuioss\setWithoutEmpty($params, 'ignore_same_key', $ignore_same_key);
+        \landui\oss\setWithoutEmpty($params, 'host', $host);
+        \landui\oss\setWithoutEmpty($params, 'key', $key);
+        \landui\oss\setWithoutEmpty($params, 'md5', $md5);
+        \landui\oss\setWithoutEmpty($params, 'etag', $etag);
+        \landui\oss\setWithoutEmpty($params, 'callbackurl', $callbackurl);
+        \landui\oss\setWithoutEmpty($params, 'callbackbody', $callbackbody);
+        \landui\oss\setWithoutEmpty($params, 'callbackbodytype', $callbackbodytype);
+        \landui\oss\setWithoutEmpty($params, 'callbackhost', $callbackhost);
+        \landui\oss\setWithoutEmpty($params, 'file_type', $file_type);
+        \landui\oss\setWithoutEmpty($params, 'ignore_same_key', $ignore_same_key);
         $data = json_encode($params);
 
         return $this->apiPost($bucket, $path, $data);
@@ -876,7 +876,7 @@ final class BucketManager
      */
     public function prefetch($bucket, $key)
     {
-        $resource = \landuioss\entry($bucket, $key);
+        $resource = \landui\oss\entry($bucket, $key);
         $path = '/prefetch/' . $resource;
 
         $ak = $this->auth->getAccessKey();
@@ -928,7 +928,7 @@ final class BucketManager
      */
     public function deleteAfterDays($bucket, $key, $days)
     {
-        $entry = \landuioss\entry($bucket, $key);
+        $entry = \landui\oss\entry($bucket, $key);
         $path = "/deleteAfterDays/$entry/$days";
         return $this->rsPost($bucket, $path);
     }
@@ -1001,7 +1001,7 @@ final class BucketManager
         $to_deep_archive_after_days = 0,
         $delete_after_days = 0
     ) {
-        $encodedEntry = \landuioss\entry($bucket, $key);
+        $encodedEntry = \landui\oss\entry($bucket, $key);
         $path = '/lifecycle/' . $encodedEntry .
             '/toIAAfterDays/' . $to_line_after_days .
             '/toArchiveAfterDays/' . $to_archive_after_days .
@@ -1013,7 +1013,7 @@ final class BucketManager
                 array_push($condStrArr, $key . '=' . $value);
             }
             $condStr = implode('&', $condStrArr);
-            $path .= '/cond' . \landuioss\base64_urlSafeEncode($condStr);
+            $path .= '/cond' . \landui\oss\base64_urlSafeEncode($condStr);
         }
         return $this->rsPost($bucket, $path);
     }
@@ -1140,7 +1140,7 @@ final class BucketManager
     {
         $data = array();
         foreach ($key_day_pairs as $key => $day) {
-            array_push($data, '/deleteAfterDays/' . \landuioss\entry($bucket, $key) . '/' . $day);
+            array_push($data, '/deleteAfterDays/' . \landui\oss\entry($bucket, $key) . '/' . $day);
         }
         return $data;
     }
@@ -1173,7 +1173,7 @@ final class BucketManager
     ) {
         $result = array();
         foreach ($keys as $key) {
-            $encodedEntry = \landuioss\entry($bucket, $key);
+            $encodedEntry = \landui\oss\entry($bucket, $key);
             $op = '/lifecycle/' . $encodedEntry .
                 '/toIAAfterDays/' . $to_line_after_days .
                 '/toArchiveAfterDays/' . $to_archive_after_days .
@@ -1188,7 +1188,7 @@ final class BucketManager
     {
         $data = array();
         foreach ($key_mime_pairs as $key => $mime) {
-            array_push($data, '/chgm/' . \landuioss\entry($bucket, $key) . '/mime/' . base64_encode($mime));
+            array_push($data, '/chgm/' . \landui\oss\entry($bucket, $key) . '/mime/' . base64_encode($mime));
         }
         return $data;
     }
@@ -1197,7 +1197,7 @@ final class BucketManager
     {
         $data = array();
         foreach ($key_type_pairs as $key => $type) {
-            array_push($data, '/chtype/' . \landuioss\entry($bucket, $key) . '/type/' . $type);
+            array_push($data, '/chtype/' . \landui\oss\entry($bucket, $key) . '/type/' . $type);
         }
         return $data;
     }
@@ -1206,7 +1206,7 @@ final class BucketManager
     {
         $data = array();
         foreach ($key_restore_days_pairs as $key => $restore_days) {
-            array_push($data, '/restoreAr/' . \landuioss\entry($bucket, $key) . '/freezeAfterDays/' . $restore_days);
+            array_push($data, '/restoreAr/' . \landui\oss\entry($bucket, $key) . '/freezeAfterDays/' . $restore_days);
         }
         return $data;
     }
@@ -1215,7 +1215,7 @@ final class BucketManager
     {
         $data = array();
         foreach ($keys as $key) {
-            array_push($data, $operation . '/' . \landuioss\entry($bucket, $key));
+            array_push($data, $operation . '/' . \landui\oss\entry($bucket, $key));
         }
         return $data;
     }
@@ -1231,8 +1231,8 @@ final class BucketManager
             $forceOp = "true";
         }
         foreach ($key_pairs as $from_key => $to_key) {
-            $from = \landuioss\entry($source_bucket, $from_key);
-            $to = \landuioss\entry($target_bucket, $to_key);
+            $from = \landui\oss\entry($source_bucket, $from_key);
+            $to = \landui\oss\entry($target_bucket, $to_key);
             array_push($data, $operation . '/' . $from . '/' . $to . "/force/" . $forceOp);
         }
         return $data;

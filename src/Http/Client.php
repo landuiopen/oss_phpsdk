@@ -1,8 +1,8 @@
 <?php
-namespace landuioss\Http;
+namespace landui\oss\Http;
 
-use landuioss\Config;
-use landuioss\Http\Middleware;
+use landui\oss\Config;
+use landui\oss\Http\Middleware;
 
 final class Client
 {

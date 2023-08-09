@@ -1,5 +1,5 @@
 <?php
-namespace landuioss;
+namespace landui\oss;
 
 final class Config
 {

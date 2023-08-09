@@ -1,5 +1,5 @@
 <?php
-namespace landuioss\Http;
+namespace landui\oss\Http;
 
 final class Request
 {

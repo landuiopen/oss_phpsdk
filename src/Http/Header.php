@@ -1,6 +1,6 @@
 <?php
 
-namespace landuioss\Http;
+namespace landui\oss\Http;
 
 /**
  * field name case-insensitive Header
@@ -83,7 +83,7 @@ class Header implements \ArrayAccess, \IteratorAggregate, \Countable
             return $key;
         }
 
-        return \landuioss\ucwords(strtolower($key), '-');
+        return \landui\oss\ucwords(strtolower($key), '-');
     }
 
     /**

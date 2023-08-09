@@ -1,11 +1,11 @@
 <?php
 
-namespace landuioss\Storage;
+namespace landui\oss\Storage;
 
-use landuioss\Config;
-use landuioss\Http\Error;
-use landuioss\Http\Client;
-use landuioss\Http\RequestOptions;
+use landui\oss\Config;
+use landui\oss\Http\Error;
+use landui\oss\Http\Client;
+use landui\oss\Http\RequestOptions;
 /**
  *表单上传器用于接受存储从前端直接上传的资源
  *
@@ -52,7 +52,7 @@ final class FormUploader
         }
 
         //enable crc32 check by default
-        $fields['crc32'] = \landuioss\crc32_data($data);
+        $fields['crc32'] = \landui\oss\crc32_data($data);
 
         if ($params) {
             foreach ($params as $k => $v) {
@@ -60,7 +60,7 @@ final class FormUploader
             }
         }
 
-        list($accessKey, $bucket, $err) = \landuioss\explodeUpToken($upToken);
+        list($accessKey, $bucket, $err) = \landui\oss\explodeUpToken($upToken);
         if ($err != null) {
             return array(null, $err);
         }
@@ -122,7 +122,7 @@ final class FormUploader
             $fields['key'] = $key;
         }
 
-        $fields['crc32'] = \landuioss\crc32_file($filePath);
+        $fields['crc32'] = \landui\oss\crc32_file($filePath);
 
         if ($params) {
             foreach ($params as $k => $v) {
@@ -132,7 +132,7 @@ final class FormUploader
         $fields['key'] = $key;
         $headers = array('Content-Type' => 'multipart/form-data');
 
-        list($accessKey, $bucket, $err) = \landuioss\explodeUpToken($upToken);
+        list($accessKey, $bucket, $err) = \landui\oss\explodeUpToken($upToken);
         if ($err != null) {
             return array(null, $err);
         }

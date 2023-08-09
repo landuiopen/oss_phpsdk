@@ -5,10 +5,10 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "landuioss\\": "src/landuioss"
+            "landui\\oss\\": "src"
         },
         "files": [
-            "src/landuioss/functions.php"
+            "src/functions.php"
         ]
     },
     "authors": [

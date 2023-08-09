@@ -1,10 +1,9 @@
 <?php
 require './vendor/autoload.php';/*此处为直接调用不依托框架时使用*/
-use landuioss\Auth;
-use landuioss\Config;
-use landuioss\Storage\UploadManager;
-use landuioss\Storage\BucketManager;
-use function landuioss\dd;
+use landui\oss\Auth;
+use landui\oss\Config;
+use landui\oss\Storage\UploadManager;
+use landui\oss\Storage\BucketManager;
 
 //从蓝队云云账号上面分别复制这几个参数进来(测试)
 
@@ -74,4 +73,4 @@ list($rets[], $errs[]) = $bucketManager->delete($bucket, $key);/*删除文件*/
 
 
 /*断点打印结果*/
-\landuioss\dd($ret,$token,$err,$errs);
+landui\oss\dd($ret,$token,$err,$errs);

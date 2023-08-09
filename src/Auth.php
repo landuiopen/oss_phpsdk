@@ -1,8 +1,8 @@
 <?php
-namespace landuioss;
+namespace landui\oss;
 
-use landuioss\Http\Header;
-use landuioss\Zone;
+use landui\oss\Http\Header;
+use landui\oss\Zone;
 
 final class Auth
 {
@@ -31,12 +31,12 @@ final class Auth
     public function sign($data)
     {
         $hmac = hash_hmac('sha1', $data, $this->secretKey, true);
-        return $this->accessKey . ':' . \landuioss\base64_urlSafeEncode($hmac);
+        return $this->accessKey . ':' . \landui\oss\base64_urlSafeEncode($hmac);
     }
 
     public function signWithData($data)
     {
-        $encodedData = \landuioss\base64_urlSafeEncode($data);
+        $encodedData = \landui\oss\base64_urlSafeEncode($data);
         return $this->sign($encodedData) . ':' . $encodedData;
     }
 

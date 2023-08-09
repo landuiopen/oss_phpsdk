@@ -1,12 +1,12 @@
 <?php
 
-namespace landuioss\Storage;
+namespace landui\oss\Storage;
 
-use landuioss\Auth;
-use landuioss\Config;
-use landuioss\Zone;
-use landuioss\Http\Client;
-use landuioss\Http\Error;
+use landui\oss\Auth;
+use landui\oss\Config;
+use landui\oss\Zone;
+use landui\oss\Http\Client;
+use landui\oss\Http\Error;
 
 /**
  * 主要涉及了内容审核接口的实现，具体的接口规格可以参考

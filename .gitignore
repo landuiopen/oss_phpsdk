@@ -4,3 +4,4 @@
 *.log
 /test.pdf
 .env
+/desktop.ini

@@ -1,7 +1,7 @@
 <?php
-namespace landuioss;
+namespace landui\oss;
 
-use landuioss\Region;
+use landui\oss\Region;
 
 class Zone extends Region
 {

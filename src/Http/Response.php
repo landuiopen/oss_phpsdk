@@ -1,6 +1,6 @@
 <?php
 
-namespace landuioss\Http;
+namespace landui\oss\Http;
 
 /**
  * HTTP response Object
@@ -167,7 +167,7 @@ final class Response
 
     private static function bodyJson($body)
     {
-        return \landuioss\json_decode((string) $body, true, 512);
+        return \landui\oss\json_decode((string) $body, true, 512);
     }
 
     public function xVia()

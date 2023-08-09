@@ -1,8 +1,8 @@
 <?php
 
-namespace landuioss\Http;
+namespace landui\oss\Http;
 
-use landuioss\Http\Middleware\Middleware;
+use landui\oss\Http\Middleware\Middleware;
 
 final class RequestOptions
 {

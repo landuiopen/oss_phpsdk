@@ -1,11 +1,11 @@
 <?php
-namespace landuioss\Storage;
+namespace landui\oss\Storage;
 
-use landuioss\Config;
-use landuioss\Http\HttpClient;
-use landuioss\Http\RequestOptions;
-use landuioss\Storage\ResumeUploader;
-use landuioss\Storage\FormUploader;
+use landui\oss\Config;
+use landui\oss\Http\HttpClient;
+use landui\oss\Http\RequestOptions;
+use landui\oss\Storage\ResumeUploader;
+use landui\oss\Storage\FormUploader;
 
 /**
  * 上载管理器

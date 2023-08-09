@@ -1,8 +1,8 @@
 <?php
-namespace landuioss\Http\Middleware;
+namespace landui\oss\Http\Middleware;
 
-use landuioss\Http\Request;
-use landuioss\Http\Response;
+use landui\oss\Http\Request;
+use landui\oss\Http\Response;
 
 class RetryDomainsMiddleware implements Middleware
 {
@@ -53,7 +53,7 @@ class RetryDomainsMiddleware implements Middleware
 
         foreach (array_merge(array($urlComponents["host"]), $this->backupDomains) as $backupDomain) {
             $urlComponents["host"] = $backupDomain;
-            $request->url = \landuioss\unparse_url($urlComponents);
+            $request->url = \landui\oss\unparse_url($urlComponents);
             $retriedTimes = 0;
 
             while ($retriedTimes < $this->maxRetryTimes) {

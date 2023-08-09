@@ -1,8 +1,8 @@
 <?php
 
-namespace landuioss;
+namespace landui\oss;
 
-use landuioss\Config;
+use landui\oss\Config;
 
 final class Etag
 {
@@ -70,7 +70,7 @@ final class Etag
             list($sha1Final,) = self::calcSha1($tmpData);
             $sha1Buf = array_merge($sha1Buf, $sha1Final);
         }
-        $etag = \landuioss\base64_urlSafeEncode(self::packArray('C*', $sha1Buf));
+        $etag = \landui\oss\base64_urlSafeEncode(self::packArray('C*', $sha1Buf));
         return array($etag, null);
     }
 }

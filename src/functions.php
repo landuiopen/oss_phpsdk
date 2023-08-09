@@ -1,8 +1,8 @@
 <?php
 
-namespace landuioss;
+namespace landui\oss;
 
-use landuioss\Config;
+use landui\oss\Config;
 
 if (!defined('QINIU_FUNCTIONS_VERSION')) {
 // 环境常量
@@ -218,7 +218,7 @@ if (!defined('QINIU_FUNCTIONS_VERSION')) {
     ) {
         static $imageUrlBuilder = null;
         if (is_null($imageUrlBuilder)) {
-            $imageUrlBuilder = new \landuioss\Processing\ImageUrlBuilder;
+            $imageUrlBuilder = new \landui\oss\Processing\ImageUrlBuilder;
         }
 
         return call_user_func_array([$imageUrlBuilder, 'thumbnail'], func_get_args());
@@ -251,7 +251,7 @@ if (!defined('QINIU_FUNCTIONS_VERSION')) {
     ) {
         static $imageUrlBuilder = null;
         if (is_null($imageUrlBuilder)) {
-            $imageUrlBuilder = new \landuioss\Processing\ImageUrlBuilder;
+            $imageUrlBuilder = new \landui\oss\Processing\ImageUrlBuilder;
         }
 
         return call_user_func_array([$imageUrlBuilder, 'waterImg'], func_get_args());
@@ -288,7 +288,7 @@ if (!defined('QINIU_FUNCTIONS_VERSION')) {
     ) {
         static $imageUrlBuilder = null;
         if (is_null($imageUrlBuilder)) {
-            $imageUrlBuilder = new \landuioss\Processing\ImageUrlBuilder;
+            $imageUrlBuilder = new \landui\oss\Processing\ImageUrlBuilder;
         }
 
         return call_user_func_array([$imageUrlBuilder, 'waterText'], func_get_args());

@@ -1,12 +1,12 @@
 <?php
 
-namespace landuioss\Storage;
+namespace landui\oss\Storage;
 
-use landuioss\Config;
-use landuioss\Http\Client;
-use landuioss\Http\Error;
-use landuioss\Enum\SplitUploadVersion;
-use landuioss\Http\RequestOptions;
+use landui\oss\Config;
+use landui\oss\Http\Client;
+use landui\oss\Http\Error;
+use landui\oss\Enum\SplitUploadVersion;
+use landui\oss\Http\RequestOptions;
 
 /**
  * 断点续上传类, 该类主要实现了断点续上传中的分块上传,
@@ -92,7 +92,7 @@ final class ResumeUploader
             throw new \Exception("only support v1/v2 now!", 0, $e);
         }
 
-        list($accessKey, $bucket, $err) = \landuioss\explodeUpToken($upToken);
+        list($accessKey, $bucket, $err) = \landui\oss\explodeUpToken($upToken);
         $this->bucket = $bucket;
         if ($err != null) {
             return array(null, $err);
@@ -199,7 +199,7 @@ final class ResumeUploader
             if ($data === false) {
                 throw new \Exception("file read failed", 1);
             }
-            $crc = \landuioss\crc32_data($data);
+            $crc = \landui\oss\crc32_data($data);
             $response = $this->makeBlock($data, $blockSize);
 
 
@@ -208,7 +208,7 @@ final class ResumeUploader
                 $ret = $response->json();
             }
             if ($response->statusCode < 0) {
-                list($accessKey, $bucket, $err) = \landuioss\explodeUpToken($this->upToken);
+                list($accessKey, $bucket, $err) = \landui\oss\explodeUpToken($this->upToken);
                 if ($err != null) {
                     return array(null, $err);
                 }
@@ -282,7 +282,7 @@ final class ResumeUploader
     {
         $uploaded = 0;
         $partNumber = 1;
-        $encodedObjectName = $this->key ? \landuioss\base64_urlSafeEncode($this->key) : '~';
+        $encodedObjectName = $this->key ? \landui\oss\base64_urlSafeEncode($this->key) : '~';
         $isResumeUpload = $blkputRets !== null;
 
         // 初始化 upload id
@@ -331,7 +331,7 @@ final class ResumeUploader
                 $ret = $response->json();
             }
             if ($response->statusCode < 0) {
-                list($accessKey, $bucket, $err) = \landuioss\explodeUpToken($this->upToken);
+                list($accessKey, $bucket, $err) = \landui\oss\explodeUpToken($this->upToken);
                 if ($err != null) {
                     return array(null, $err);
                 }
@@ -400,14 +400,14 @@ final class ResumeUploader
     private function fileUrl($fname)
     {
         $url = $this->host . '/mkfile/' . $this->size;
-        $url .= '/mimeType/' . \landuioss\base64_urlSafeEncode($this->mime);
+        $url .= '/mimeType/' . \landui\oss\base64_urlSafeEncode($this->mime);
         if ($this->key != null) {
-            $url .= '/key/' . \landuioss\base64_urlSafeEncode($this->key);
+            $url .= '/key/' . \landui\oss\base64_urlSafeEncode($this->key);
         }
-        $url .= '/fname/' . \landuioss\base64_urlSafeEncode($fname);
+        $url .= '/fname/' . \landui\oss\base64_urlSafeEncode($fname);
         if (!empty($this->params)) {
             foreach ($this->params as $key => $value) {
-                $val = \landuioss\base64_urlSafeEncode($value);
+                $val = \landui\oss\base64_urlSafeEncode($value);
                 $url .= "/$key/$val";
             }
         }
@@ -524,7 +524,7 @@ final class ResumeUploader
             'Content-Type' => 'application/json'
         );
         $etags = $this->finishedEtags['etags'];
-        $sortedEtags = \landuioss\arraySort($etags, 'partNumber');
+        $sortedEtags = \landui\oss\arraySort($etags, 'partNumber');
         $metadata = array();
         $customVars = array();
         if ($this->params) {

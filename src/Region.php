@@ -1,10 +1,10 @@
 <?php
-namespace landuioss;
+namespace landui\oss;
 
-use landuioss\Http\Client;
-use landuioss\Http\Error;
-use landuioss\Http\Middleware\RetryDomainsMiddleware;
-use landuioss\Http\RequestOptions;
+use landui\oss\Http\Client;
+use landui\oss\Http\Error;
+use landui\oss\Http\Middleware\RetryDomainsMiddleware;
+use landui\oss\Http\RequestOptions;
 
 class Region
 {
