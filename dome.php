@@ -11,10 +11,6 @@ $accessKey = 'ACCESS_KEY';//请在蓝队云管理面板中获取
 $secretKey = 'SECRET_KEY';//请在蓝队云管理面板中获取
 $bucket = 'BUCKET';//存储空间 蓝队云中创建好存储空间后将名称替换
 
-
-$accessKey = 'wapD0OFkMpJXBtKaG0UmhNwUBggrodBNeQKrF8Fj';
-$secretKey = 'qlDBbh4fC592AYee5kdsYKZUv41lpw9VE3CoHxvl';
-$bucket = 'xiaotest1';
 //实例化蓝队云云auth类
 $auth = new Auth($accessKey, $secretKey);
 //生成token
