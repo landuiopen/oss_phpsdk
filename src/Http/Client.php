@@ -14,7 +14,6 @@ final class Client
      */
     public static function get($url, array $headers = array(), $opt = null)
     {
-        var_dump("GET打印",$url);
         $request = new Request('GET', $url, $headers, null, $opt);
         return self::sendRequestWithMiddleware($request);
     }
