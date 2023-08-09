@@ -1,5 +1,6 @@
 # oss_phpsdk
 
+```
 <?php
 require './vendor/autoload.php';/*此处为直接调用不依托框架时使用*/
 use landui\oss\Auth;
@@ -68,6 +69,7 @@ $days = 10;
 list($rets[], $errs[]) = $bucketManager->deleteAfterDays($bucket, $key, $days);/*设置或更新文件的生存时间*/
 list($rets[], $errs[]) = $bucketManager->delete($bucket, $key);/*删除文件*/
 
+```
 
 
 /*断点打印结果*/
