@@ -13,8 +13,7 @@ final class Config
     const RS_HOST  = 'rs.landuiyuapi.com';
     // UC Host
     const UC_HOST = 'uc.qbox.me';
-    const QUERY_REGION_HOST = 'landuisdkapi.dev.landui.com';
-//    const QUERY_REGION_HOST = 'kodo-config.landuiyuapi.com';
+    const QUERY_REGION_HOST = 'oss.landui.com';
     const ARGUS_HOST        = 'ai.landuiyuapi.com';
     const CASTER_HOST       = 'pili-caster.landuiyuapi.com';
 
@@ -50,7 +49,7 @@ final class Config
     public function __construct(Region $z=null)
     {
         $this->zone                    = $z;
-        $this->useHTTPS                = false;
+        $this->useHTTPS                = true;
         $this->useCdnDomains           = false;
         $this->regionCache             = [];
         $this->ucHost                  = self::UC_HOST;
@@ -123,7 +122,6 @@ final class Config
     public function getUpHost($accessKey, $bucket)
     {
         $region = $this->getRegion($accessKey, $bucket);
-        ;
         if ($this->useHTTPS === true) {
             $scheme = 'https://';
         } else {
