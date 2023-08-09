@@ -39,7 +39,6 @@ final class Client
      */
     public static function post($url, $body, array $headers = array(), $opt = null)
     {
-        var_dump('post打印'.$url);
         $request = new Request('POST', $url, $headers, $body, $opt);
         return self::sendRequest($request);
     }
