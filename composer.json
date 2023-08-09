@@ -1,6 +1,7 @@
 {
     "name": "landui/oss",
     "description": "Landui Resource (Cloud) Storage SDK for PHP",
+    "version": "1.0.1",
     "license": "MIT",
     "autoload": {
         "psr-4": {
