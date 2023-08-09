@@ -69,8 +69,7 @@ $days = 10;
 list($rets[], $errs[]) = $bucketManager->deleteAfterDays($bucket, $key, $days);/*设置或更新文件的生存时间*/
 list($rets[], $errs[]) = $bucketManager->delete($bucket, $key);/*删除文件*/
 
-```
-
 
 /*断点打印结果*/
 landui\oss\dd($ret,$token,$err,$errs);
+```
